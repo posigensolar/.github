@@ -1,0 +1,21 @@
+name: 'GCP Pull Request CI'
+
+on:
+  pull_request_review:
+    types: [submitted]
+jobs:
+  gcp-pull-request-ci:
+    if: github.event.review.state == 'approved'
+    uses: posigensolar/github-actions/.github/workflows/gcp-pull-request-ci.yaml@master
+    with:
+      event: github.event
+      stg-env: 'stg'
+      stg-projectId: ${{ secrets.STG_GCP_PROJECT_ID }} 
+      stg-cli-args: ${{ secrets.STG_GCP_CLI_ARGS }}
+      prd-env: 'prd'
+      prd-projectId: ${{ secrets.PRD_GCP_PROJECT_ID }} 
+      prd-cli-args: ${{ secrets.PRD_GCP_CLI_ARGS }}
+    secrets:
+      STG_GOOGLE_CREDENTIALS: ${{ secrets.STG_GOOGLE_CREDENTIALS }}     
+      PRD_GOOGLE_CREDENTIALS: ${{ secrets.PRD_GOOGLE_CREDENTIALS }}
+      token: ${{ github.token }}

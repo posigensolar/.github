@@ -1,0 +1,15 @@
+name: Remove labels on new commit
+
+on:
+  pull_request:
+
+jobs:
+  remove-labels:
+    name: Remove labels
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove deploy-prd label
+        uses: actions-ecosystem/action-remove-labels@v1
+        with:
+          labels: deploy-prd
+          github_token: ${{ github.token }}
