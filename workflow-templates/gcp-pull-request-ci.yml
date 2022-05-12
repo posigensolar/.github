@@ -22,3 +22,4 @@ jobs:
       stg-cli-args: '${{ secrets.STG_GCP_CLI_ARGS }}'
       prd-projectId: '${{ secrets.PRD_GCP_PROJECT_ID }}' 
       prd-cli-args: '${{ secrets.PRD_GCP_CLI_ARGS }}'
+      pat: '${{ secrets.PAT }}'
