@@ -8,7 +8,7 @@ jobs:
     if: github.event.review.state == 'approved'
     uses: posigensolar/github-actions/.github/workflows/gcp-label-ci.yaml@master
     with:
-      repository: ${{ github.repository }}
+      repo: ${{ github.repository }}
       deploy-prod: ${{ contains( github.event.pull_request.labels.*.name, 'deploy-prd') }}
       pull-request-number: ${{ github.event.pull_request.number }}
       stg-env: 'stg'
