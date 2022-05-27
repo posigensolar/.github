@@ -1,6 +1,5 @@
 
-   
-name: 'GCP Pull Request CI'
+   name: 'GCP Pull Request CI'
 
 on:
   pull_request_review:
